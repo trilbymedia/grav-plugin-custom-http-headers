@@ -1,0 +1,62 @@
+name: Custom HTTP Headers
+slug: custom-http-headers
+type: plugin
+version: 0.1.0
+description: Ability add custom HTTP Headers for Content Security Policy (CSP), Cross Origin Resource Sharing (CORS), Referrer-Policy, Permissions Policy, and other security needs
+icon: globe
+author:
+  name: Trilby Media
+  email: hello@trilby.media
+homepage: https://github.com/trilbymedia/grav-plugin-custom-http-headers
+demo: http://demo.yoursite.com
+keywords: grav, plugin, Content-Security-Policy, CSP, Cross Origin Resource Sharing, CORS, Strict-Transport-Security, Referrer-Policy, Permissions-Policy, X-Xss-Protection
+bugs: https://github.com/trilbymedia/grav-plugin-custom-http-headers/issues
+docs: https://github.com/trilbymedia/grav-plugin-custom-http-headers/blob/develop/README.md
+license: MIT
+
+dependencies:
+  - { name: grav, version: '>=1.6.0' }
+
+form:
+  validation: loose
+  fields:
+    enabled:
+      type: toggle
+      label: PLUGIN_ADMIN.PLUGIN_STATUS
+      highlight: 1
+      default: 1
+      options:
+        1: PLUGIN_ADMIN.ENABLED
+        0: PLUGIN_ADMIN.DISABLED
+      validate:
+        type: bool
+    enabled_in_admin:
+      type: toggle
+      label: PLUGIN_CUSTOM_HTTP_HEADERS.ENABLED_IN_ADMIN
+      highlight: 1
+      default: 1
+      options:
+        1: PLUGIN_ADMIN.ENABLED
+        0: PLUGIN_ADMIN.DISABLED
+      validate:
+        type: bool
+    debug_headers:
+      type: toggle
+      label: PLUGIN_CUSTOM_HTTP_HEADERS.DEBUG_HEADERS
+      help: PLUGIN_CUSTOM_HTTP_HEADERS.DEBUG_HEADERS_HELP
+      highlight: 0
+      default: 0
+      options:
+        1: PLUGIN_ADMIN.ENABLED
+        0: PLUGIN_ADMIN.DISABLED
+      validate:
+        type: bool
+    custom_headers:
+      type: array
+      label: PLUGIN_CUSTOM_HTTP_HEADERS.CUSTOM_HEADERS
+      help: PLUGIN_CUSTOM_HTTP_HEADERS.CUSTOM_HEADERS_HELP
+    remove_headers:
+      type: array
+      value_only: true
+      label: PLUGIN_CUSTOM_HTTP_HEADERS.REMOVE_HEADERS
+      help: PLUGIN_CUSTOM_HTTP_HEADERS.REMOVE_HEADERS_HELP

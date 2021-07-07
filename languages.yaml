@@ -1,0 +1,9 @@
+en:
+  PLUGIN_CUSTOM_HTTP_HEADERS:
+    ENABLED_IN_ADMIN: Enabled in Admin
+    DEBUG_HEADERS: Debug Headers
+    DEBUG_HEADERS_HELP: When enabled the headers array will be dumped into the debugger
+    CUSTOM_HEADERS: Custom Headers
+    CUSTOM_HEADERS_HELP: Headers that should be added or modified
+    REMOVE_HEADERS: Remove Headers
+    REMOVE_HEADERS_HELP: Existing headers to be removed

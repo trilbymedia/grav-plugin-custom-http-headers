@@ -1,21 +1,20 @@
 name: Custom HTTP Headers
 slug: custom-http-headers
 type: plugin
-version: 0.1.0
+version: 1.0.0
 description: Ability add custom HTTP Headers for Content Security Policy (CSP), Cross Origin Resource Sharing (CORS), Referrer-Policy, Permissions Policy, and other security needs
 icon: globe
 author:
   name: Trilby Media
   email: hello@trilby.media
 homepage: https://github.com/trilbymedia/grav-plugin-custom-http-headers
-demo: http://demo.yoursite.com
 keywords: grav, plugin, Content-Security-Policy, CSP, Cross Origin Resource Sharing, CORS, Strict-Transport-Security, Referrer-Policy, Permissions-Policy, X-Xss-Protection
 bugs: https://github.com/trilbymedia/grav-plugin-custom-http-headers/issues
 docs: https://github.com/trilbymedia/grav-plugin-custom-http-headers/blob/develop/README.md
 license: MIT
 
 dependencies:
-  - { name: grav, version: '>=1.6.0' }
+  - { name: grav, version: '>=1.7.0' }
 
 form:
   validation: loose

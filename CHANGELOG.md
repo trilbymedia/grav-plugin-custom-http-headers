@@ -1,5 +1,5 @@
 # v1.0.1
-## mm/dd/2021
+## 05/19/2021
 
 1. [](#new)
    * Added the ability to configure `adding` and `removing` HTTP headers from a page via `custom_http_headers:` frontmatter element.

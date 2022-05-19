@@ -1,9 +1,12 @@
 <?php
+
 namespace Grav\Plugin;
 
 use Composer\Autoload\ClassLoader;
 use Grav\Common\Debugger;
+use Grav\Common\Page\Interfaces\PageInterface;
 use Grav\Common\Plugin;
+use RocketTheme\Toolbox\Event\Event;
 
 /**
  * Class CustomHTTPHeadersPlugin
@@ -26,7 +29,7 @@ class CustomHTTPHeadersPlugin extends Plugin
         return [
             'onPluginsInitialized' => [
                 ['onPluginsInitialized', 0]
-            ]
+            ],
         ];
     }
 
@@ -49,17 +52,43 @@ class CustomHTTPHeadersPlugin extends Plugin
 
         if ($this->isAdmin() && !$config['enabled_in_admin']) {
             return;
+        } else {
+            $this->enable([
+                'onPageInitialized' => [
+                    ['onPageInitialized', 0]
+                ]
+            ]);
         }
+    }
+
+    public function onPageInitialized(): void
+    {
+        $config = (array)$this->config->get('plugins.custom-http-headers');
 
         $custom_headers = $config['custom_headers'] ?? [];
         $remove_headers = $config['remove_headers'] ?? [];
-
-        foreach($custom_headers as $header => $value) {
+        foreach ($custom_headers as $header => $value) {
             header("$header: $value");
         }
 
-        foreach($remove_headers as $header) {
+        foreach ($remove_headers as $header) {
             header_remove($header);
+        }
+
+        /** @var PageInterface $page */
+        $page = $this->grav['page'];
+        if (isset($page->header()->custom_http_headers)) {
+            $page_config = $page->header()->custom_http_headers;
+
+            $custom_headers = $page_config['custom_headers'] ?? [];
+            $remove_headers = $page_config['remove_headers'] ?? [];
+            foreach ($custom_headers as $header => $value) {
+                header("$header: $value");
+            }
+
+            foreach ($remove_headers as $header) {
+                header_remove($header);
+            }
         }
 
         if ($config['debug_headers']) {

@@ -53,6 +53,29 @@ remove_headers:
 
 Note that if you use the Admin Plugin, a file with your configuration named custom-http-headers.yaml will be saved in the `user/config/plugins/`-folder once the configuration is saved in the Admin.
 
+## Page Configuration Overrides
+
+You can override a specific header to add or remove by providing additional data in a page header.  Use the header variagble `custom_http_headers:` to set these in combination with `remove_headers` to remove headeers, and/or `custom_headers` add them.  These expect an array of header keys for removing, and an array of key/value pairs for adding headers.
+
+For example to remove a specific header on a page:
+
+`yourpage.md`
+```yaml
+custom_http_headers:
+    remove_headers: ['x-something']
+```
+
+or to add a couple:
+
+`yourpage.md`
+```yaml
+custom_http_headers:
+    custom_headers:
+      x-something: 'some value'
+      another-header: 'another value'
+      
+```
+
 ## Usage
 
 Just enabling the plugin will allow it to respond to any request made through Grav.  Please note that this will not add custom headers for any requests made directly to the websever. CSS and JS requests, most image requests etc. are not processed through Grav.

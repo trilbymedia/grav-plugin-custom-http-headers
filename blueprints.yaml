@@ -1,7 +1,7 @@
 name: Custom HTTP Headers
 slug: custom-http-headers
 type: plugin
-version: 1.0.2
+version: 1.0.3
 description: Ability add custom HTTP Headers for Content Security Policy (CSP), Cross Origin Resource Sharing (CORS), Referrer-Policy, Permissions Policy, and other security needs
 icon: globe
 author:

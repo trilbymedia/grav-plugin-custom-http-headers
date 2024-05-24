@@ -1,3 +1,9 @@
+# v1.0.2
+## 05/24/2024
+
+1. [](#new)
+   * Changed the default`X-Frame-Options` to `SAMEORIGIN` [#3](https://github.com/trilbymedia/grav-plugin-custom-http-headers/pull/3)
+
 # v1.0.1
 ## 05/19/2021
 

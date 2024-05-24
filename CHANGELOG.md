@@ -1,3 +1,9 @@
+# v1.0.3
+## 05/24/2024
+
+1. [](#new)
+   * Remove default`X-Frame-Options` as it can lead to issues [#4](https://github.com/trilbymedia/grav-plugin-custom-http-headers/pull/4)
+
 # v1.0.2
 ## 05/24/2024
 
